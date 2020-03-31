@@ -30,4 +30,23 @@ let input = [
          Commit(timestamp: Date(timeIntervalSince1970: 9), status: .bad),
 ]
 
+func badStatusCode(_ arr: [Commit])-> String {
+    let status: CommitStatus = .bad
+    var answer = String()
+    
+    for (index, output) in arr.enumerated() {
+        if output.status == status {
+             answer = "Found error \(index) seconds after 1970"
+            break
+        } else {
+            continue
+        }
+    }
+    
+    return answer
+}
+
+print(badStatusCode(input))
+
 // Output: The commit made 3 seconds after 1970.
+
