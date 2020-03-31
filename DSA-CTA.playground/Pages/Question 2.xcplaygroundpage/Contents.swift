@@ -12,23 +12,19 @@ import Foundation
 // Output: [1,3]
 
 func getNumbers(_ array: [Int], _ number: Int)-> [Int] {
-    var resultsArray = [Int]()
-    var numberOfTimes = [Int:Int]()
-//    var answer = [Int]()
     
-    for num in array {
-        
-        
-        
-        if num == number {
-            resultsArray.append(num)
+  var answer = [Int]()
+    
+    for values in array {
+        if values >= number {
+            answer.append(values)
         }
     }
     
+    return answer
     
-    return resultsArray
 }
 
-var someArray = [1,3,5,6,8,9,10,1,1]
+var someArray = [1,3,5,6,8,9,10,5]
 
-print(getNumbers(someArray, 1))
+print(getNumbers(someArray, 3))
