@@ -27,3 +27,26 @@ struct Stack<T> {
     }
     private var arr: [T] = []
 }
+
+
+
+func getSum(_ stack: Stack<Int>)-> Int {
+    var stack = stack
+    var values = 0
+    var sum = 0
+    
+    while !stack.isEmpty {
+        values = stack.pop()!
+        sum += values
+    }
+    
+    return sum
+}
+
+var someStack = Stack<Int>()
+
+someStack.push(1)
+someStack.push(2)
+someStack.push(1)
+
+print(getSum(someStack))
