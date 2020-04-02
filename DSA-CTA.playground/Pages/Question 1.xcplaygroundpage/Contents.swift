@@ -21,48 +21,32 @@ extension Node: CustomStringConvertible {
     }
 }
 
-class LinkedList<T> {
-    var head: Node<T>?
-    var tail: Node<T>?
-    
-    public var isEmpty: Bool {
-        print("empty list")
-        return head == nil
+func sortedNode(node: Node<Int>)-> String {
+    var des = String()
+    while node.next != nil {
+        des = node.description
+       break
     }
-    
-    
-    
-    public func append(_ value: T) {
-        let newNode = Node(value)
-        
-        guard let lastNode = tail else {
-            head = newNode
-            tail = head
-            return
-        }
-        
-        lastNode.next = newNode
-        tail = newNode
-        
-    }
+    return des
 }
 
-extension LinkedList: CustomStringConvertible {
-    var description: String {
-        guard let head = head else {
-            return "empty list"
-        }
-        return "-> \(head)"
-    }
-}
 
-let list = LinkedList<String>()
-list.append("oscar")
-list.append("ivan")
-list.append("alex")
-print(list)
+var node1 = Node<Int>(1)
+var node2 = Node<Int>(2)
+var node3 = Node<Int>(3)
+var node4 = Node<Int>(4)
+
+node1.next = node3
+node3.next = node2
+node2.next = node4
+
+print(sortedNode(node: node1))
+
+
 
 // Print format:
 //```
 //-> 4 -> 9 -> 2 -> 3 -> nil
 //```
+
+

@@ -68,13 +68,13 @@ func rangeSorted(_ queue: Queue<Int>)-> Int {
     guard var max = queue.peek else {return 0}
     
     while queue.dequeue() != nil {
-        if queue.dequeue()! > max {
+        if queue.dequeue()! >= max {
             max = queue.dequeue()!
         }
     }
     
     while let smallestQ = queue.dequeue() {
-        if smallestQ < min {
+        if smallestQ <= min {
             min = smallestQ
         }
     }
@@ -87,6 +87,9 @@ var someQueue = Queue<Int>()
 someQueue.enqueue(1)
 someQueue.enqueue(4)
 someQueue.enqueue(9)
+someQueue.enqueue(7)
+
+print(rangeSorted(someQueue))
 
 
 

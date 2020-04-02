@@ -42,7 +42,6 @@ func badStatusCode(_ arr: [Commit])-> String {
             continue
         }
     }
-    
     return answer
 }
 
