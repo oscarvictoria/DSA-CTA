@@ -12,19 +12,19 @@ import Foundation
 // Output: [1,3]
 
 func getNumbers(_ array: [Int], _ number: Int)-> [Int] {
+    var result = [Int]()
+    var dic = [Int:Int]()
     
-  var answer = [Int]()
-    
-    for values in array {
-        if values >= number {
-            answer.append(values)
-        }
+    for num in array {
+        dic[num] = (dic[num] ?? 0) + 1
     }
     
-    return answer
-    
+    for (key, value) in dic {
+        if value >= number {
+            result.append(key)
+        }
+    }
+    return result
 }
-
-var someArray = [1,3,5,6,8,9,10,5]
-
+var someArray = [1,3,4,5,5,5,3,3,3]
 print(getNumbers(someArray, 3))
