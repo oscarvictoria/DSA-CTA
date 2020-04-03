@@ -62,25 +62,25 @@ extension Array {
 }
 
 func rangeSorted(_ queue: Queue<Int>)-> Int {
-    var queue = queue
-    var result = Int()
-    guard var min = queue.peek else {return 0}
-    guard var max = queue.peek else {return 0}
+    var minQueue = queue
+    var smallest = minQueue.peek!
     
-    while queue.dequeue() != nil {
-        if queue.dequeue()! >= max {
-            max = queue.dequeue()!
+    while let value = minQueue.dequeue() {
+        if value <= smallest {
+            smallest = value
         }
     }
     
-    while let smallestQ = queue.dequeue() {
-        if smallestQ <= min {
-            min = smallestQ
+    var maxQueue = queue
+    var largest = maxQueue.peek!
+    
+    while let value = maxQueue.dequeue() {
+        if value >= largest {
+            largest = value
         }
     }
-    
-    result = max - min
-    return result
+
+ return largest - smallest
 }
 
 var someQueue = Queue<Int>()
